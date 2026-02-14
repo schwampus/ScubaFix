@@ -1,42 +1,33 @@
+@import "tailwindcss";
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@theme {
+	--font-family-display: "Londrina Shadow", sans-serif;
+	--font-family-body: "Manrope", sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.font-display {
+	font-family: var(--font-family-display);
+}
+.font-body {
+	font-family: var(--font-family-body);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body {
+	background-image: linear-gradient(#165279, #133359, #0f1c3a);
 }
 
-.card {
-  padding: 2em;
+.sliderRed {
+	accent-color: rgb(187, 8, 8);
 }
-
-.read-the-docs {
-  color: #888;
+.sliderGreen {
+	accent-color: rgb(15, 107, 50);
+}
+.sliderBlue {
+	accent-color: rgb(27, 14, 206);
 }

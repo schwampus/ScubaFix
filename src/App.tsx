@@ -137,44 +137,72 @@ export default function App() {
 
 	return (
 		<div style={{ padding: 20 }}>
-			<h1>Scuba-Pic-Fix</h1>
-			<div>
-				<input type="file" accept="image/*" onChange={handleUpload} />
+			<h1 className="font-display text-blue-300">ScubaFix</h1>
+			<div className="relative group">
+				<input
+					type="file"
+					accept="image/*"
+					onChange={handleUpload}
+					className="absolute inset-0 opacity-0 cursor-pointer"
+				/>
+				<button
+					type="button"
+					className={`
+      p-3 rounded-full
+      bg-gray-100 hover:bg-gray-200
+      dark:bg-gray-800 dark:hover:bg-gray-700
+      text-gray-600 dark:text-gray-300
+      hover:text-blue-600 dark:hover:text-blue-400
+      transition-colors
+    `}
+					title="Upload image"
+				>
+					Select an Image
+				</button>
 			</div>
 			<div>
 				<button onClick={fixColors}>Fix Colors With Magic</button>
 			</div>
 
-			<div>
-				<label>Red</label>
-				<input
-					type="range"
-					min="0"
-					max="3"
-					step="0.01"
-					value={red}
-					onChange={(e) => setRed(Number(e.target.value))}
-				/>
-
-				<label>Green</label>
-				<input
-					type="range"
-					min="0"
-					max="3"
-					step="0.01"
-					value={green}
-					onChange={(e) => setGreen(Number(e.target.value))}
-				/>
-
-				<label>Blue</label>
-				<input
-					type="range"
-					min="0"
-					max="3"
-					step="0.01"
-					value={blue}
-					onChange={(e) => setBlue(Number(e.target.value))}
-				/>
+			<div id="colorsliders" className="flex-col gap-1">
+				<aside>
+					<label className="text-red-500 font-body text-bold px-2">RED</label>
+					<input
+						type="range"
+						min="0"
+						max="3"
+						step="0.01"
+						className="sliderRed"
+						value={red}
+						onChange={(e) => setRed(Number(e.target.value))}
+					/>
+				</aside>
+				<aside>
+					<label className="text-green-600 font-body text-bold px-2">
+						GREEN
+					</label>
+					<input
+						type="range"
+						min="0"
+						max="3"
+						step="0.01"
+						className="sliderGreen"
+						value={green}
+						onChange={(e) => setGreen(Number(e.target.value))}
+					/>
+				</aside>
+				<aside>
+					<label className="text-blue-600 font-body text-bold px-2">BLUE</label>
+					<input
+						type="range"
+						min="0"
+						max="3"
+						step="0.01"
+						value={blue}
+						className="sliderBlue"
+						onChange={(e) => setBlue(Number(e.target.value))}
+					/>
+				</aside>
 			</div>
 
 			<canvas ref={canvasRef} style={{ maxWidth: "100%", marginTop: 20 }} />
